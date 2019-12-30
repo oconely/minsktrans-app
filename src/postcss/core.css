@@ -34,10 +34,6 @@ body {
 	position: relative;
 }
 
-body > svg:first-child {
-	display: none;
-}
-
 a {
 	color: $textColor;
 	background-color: transparent;
@@ -86,6 +82,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+}
+
+#root {
+	height: 100%;
 }
 
 code[class*="language-"], pre[class*="language-"] {
