@@ -1,0 +1,43 @@
+@import '../../../postcss/variables.css';
+
+.soc-link.soc-link_mobmenu {
+
+    @media (min-width: $sm) {
+        display: none;
+    }
+}
+
+.soc-link {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: toRem(20) 0 toRem(20);
+}
+
+.soc-link svg {
+    height: 100px;
+    width: 100px;
+    fill: #fff;
+}
+
+.soc-link_linkedin {
+    background: $linkedin;
+}
+
+.soc-link_telegram {
+    background: $telegram;
+}
+
+.soc-link_github {
+    background: $deem;
+}
+
+.soc-link_gmail {
+    background: $gmail;
+}
+
+.soc-link_skype {
+    background: $skype;
+}

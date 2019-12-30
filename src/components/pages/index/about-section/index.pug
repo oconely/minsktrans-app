@@ -1,0 +1,37 @@
+.about-section#about
+		.l-wrap
+			.about-section__grid
+				h1.about-section__name Andrew Ribaltovsky
+				.about-section__code-snippet
+					.filename About.js
+					pre.code-snippet
+						code.language-js
+							| export const getDeveloperInfo = () => ({
+							|     name: 'Andrew Ribaltovsky',
+							|     specialization: 'frontend',
+							|     stack: {
+							|		htmlPreprocessors: ['pugjs'],
+							|		cssPreprocessors: ['postcss', 'scss'],
+							|		taskRunners: ['gulp'],
+							|		bundlers: ['webpack'],
+							|		uiFrameworks: ['react'],
+							|		stateManagment: ['redux'],
+							|		workflow: ['github', 'gitlab'],
+							| 	},
+							|     interests: ['nodejs', 'css grid', 'css variables', 'web performance'],
+							|     jobStatus: 'Looking for a good job'
+							| });
+				ul.ul-reset.pswp-gallery.about-section__pswp-gallery
+					li.pswp__list-item(data-el-index="0")
+						figure.about-section__figure.photo(
+							data-sm-src=require('./images/me.jpg')
+							data-md-src=require('./images/me.jpg')
+							data-lg-src=require('./images/me.jpg')
+						)
+							picture
+								source(
+									srcset=require('./images/me.webp')
+									type="image/jpeg"
+								)
+								img(src=require('./images/me.jpg') alt="It's me, Andrew Ribaltovsky")
+				

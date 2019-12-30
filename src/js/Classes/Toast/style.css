@@ -1,0 +1,63 @@
+@import '../../../postcss/variables.css';
+
+.toastsContain {
+    font-family: 'Muli-Black';
+    position: fixed;
+    left: calc(50% - 150px);
+    bottom: 50px;
+    width: 300px;
+    z-index: $zindex-fifth;
+    font-size: 11px;
+
+    @media (min-width: 560px) {
+        width: 400px;
+        left: calc(50% - 200px);
+        font-size: 13px;
+    }
+
+    @media (min-width: $sm) {
+        left: initial;
+        right: 20px;
+    }
+}
+
+.toast {
+    opacity: 0;
+    min-height: 30px;
+    padding: 5px;
+    margin-top: -42px;
+    background-color: color($accent tint(30%));
+    box-shadow: 0 3px 4px rgba(0,0,0,0.4);
+    text-align: center;
+    line-height: 30px;
+    transform: scale(0.9) translateY(50px);
+    color: #fff;
+}
+
+.toast__close-btn {
+    cursor: pointer;
+    padding: 5px 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    transition: opacity 0.15s ease;
+}
+
+.toast__close-btn:hover {
+    opacity: 0.5;
+}
+
+.toast_success {
+    background-color: color(green tint(30%));
+}
+
+.toast_error {
+    border: 1px solid $accent;
+}
+
+.toast_open {
+    margin-top: 10px;
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}

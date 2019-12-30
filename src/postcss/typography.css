@@ -1,0 +1,29 @@
+@import './variables.css';
+
+
+h1, h2, h3, h4 {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'Muli-Black';
+	color: inherit;
+}
+
+h1 {
+    font-family: $MuliBlackItalic;
+    font-size: toRem(25);
+
+    @media (min-width: $sm) {
+        font-size: toRem(40);
+    }
+}
+
+p {
+    font-size: toRem(18);
+    line-height: toRem(29);
+    margin-top: toRem(20);
+    margin-bottom: toRem(10);
+
+    @media (min-width: $sm) {
+        font-size: toRem(20);
+    }
+}

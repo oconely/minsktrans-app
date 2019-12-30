@@ -1,0 +1,26 @@
+@import './variables.css';
+
+.button {
+    font-family: $MuliRegular;
+    display: inline-block;
+    padding: toRem(7) toRem(12);
+    font-size: toRem(19);
+    background: $accent;
+    color: #fff;
+    vertical-align: baseline;
+    white-space: nowrap;
+    transition: background 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.button_transparent {
+    background: 0 0;
+}
+
+.button_outlined {
+    transition: border-color 0.15s ease-in-out;
+    border: 1px solid #fff;
+    border-radius: toRem(5);
+}
+
+

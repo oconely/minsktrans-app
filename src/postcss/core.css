@@ -1,0 +1,94 @@
+@import '../../node_modules/@csstools/normalize.css';
+@import './font-face.css';
+@import './variables.css';
+@import './buttons.css';
+@import './utils.css';
+@import './typography.css';
+
+html {
+	font-size: $fzRoot;
+	box-sizing: border-box;
+	height: 100%;
+	-webkit-tap-highlight-color: transparent;
+	overflow-x: hidden;
+	line-height: $baseLineHeight;
+}
+
+html * {
+	box-sizing: inherit;
+}
+
+html::after,
+html::before {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0;
+	font-family: 'Muli-Regular';
+	background-color: #fff;
+	color: $textColor;
+	overflow-x: hidden;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+	position: relative;
+}
+
+body > svg:first-child {
+	display: none;
+}
+
+a {
+	color: $textColor;
+	background-color: transparent;
+	transition: color .25s ease;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+a.emphasized {
+	color: $accent;
+}
+
+a, button{
+	outline: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-style: none;
+	vertical-align: bottom;
+}
+
+blockquote, figure, h1, h2, h3, h4, h5, h6, hr, li, ol, pre, ul {
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+	margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: toRem(35);
+	margin-bottom: toRem(17);
+}
+
+.global-container {
+	min-height: 100vh;
+	/* display: grid; */
+	/* grid-template-rows: min-content 1fr min-content; */
+	min-width: 320px;
+	max-width: 1560px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+	white-space: pre-wrap !important;
+}
+

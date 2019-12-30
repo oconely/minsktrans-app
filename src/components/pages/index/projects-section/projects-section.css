@@ -1,0 +1,46 @@
+@import '../../../../postcss/variables.css';
+
+.projects-section { 
+    margin-top: toRem(100);
+}
+
+.projects__top,
+.opensource__top {
+    margin-bottom: toRem(60);
+}
+
+.projects__tabs {
+    margin-bottom: toRem(20);
+
+    @media (min-width: $sm) {
+        margin-bottom: toRem(43);
+    }
+}
+
+.projects__list {
+    display: grid;
+    grid-row-gap: toRem(70);
+    grid-auto-rows: 1fr;
+
+
+    @media (min-width: $sm) {
+        grid-row-gap: toRem(93);
+    }
+
+    @media (min-width: $md) {
+        grid-row-gap: toRem(115);
+    }
+}
+
+.opensource {
+    margin-top: toRem(80);
+
+    @media (min-width: $pre-sm) {
+        margin-top: initial;
+        grid-column: 2 / span 1;
+    }
+}
+
+.projects__item_github {
+    margin-bottom: toRem(60);
+}

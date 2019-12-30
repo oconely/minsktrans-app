@@ -1,0 +1,12 @@
+@import '../../../postcss/variables.css';
+
+.link {
+    box-shadow: inset 0 -0.5rem 0 color($accent tint(75%));
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+}
+
+.link:hover {
+    box-shadow: inset 0 -1.2rem 0 color($accent tint(30%));
+}
+

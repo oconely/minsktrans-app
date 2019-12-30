@@ -1,0 +1,60 @@
+// Colors
+$accent: #677BE2;
+$textColor: #181818;
+
+// Project card colors
+$sky: #48ABCA;
+$deem: #3A444D;
+$duskyCitron: #E3CD81FF;
+$violet: #C583F9;
+$blue: #0379C3;
+$lightGreen: #62D594;
+$red: #ff8578;
+/* brandColors */
+$linkedin: #007BB5;
+$telegram: #35ACE0;
+$gmail: #AF3A2D;
+$skype: #28A8EA;
+$princessBlue: #00B1D2FF;
+
+// Typography
+$fzRoot: 16px;
+$baseLineHeight: 1.45;
+
+// Font Family
+$sansSerif: Arial, Helvetica, sans-serif;
+$RobotoRegular: 'Roboto-Refular', $sansSerif;
+$RobotoLight: 'Roboto-Light', $sansSerif;
+$QuicksandRegular: 'Quicksand-Regular', $sansSerif;
+$BarlowLight: 'Barlow-Light', $sansSerif;
+$Microma: 'Microma', $sansSerif;
+$MuliRegular: 'Muli-Regular', $sansSerif;
+$MuliBlack: 'Muli-Black', $sansSerif;
+$MuliBold: 'Muli-Bold', $sansSerif;
+$MuliBlackItalic: 'Muli-Black-Italic', $sansSerif;
+
+
+// Grid
+$container: toRem(1240px);
+
+// Breakpoints
+$xs: toRem(430);
+$pre-sm: toRem(600);
+$sm: toRem(768);
+$pre-md: toRem(849);
+$md: toRem(1024);
+$lg: toRem(1280);
+$xl: toRem(1280);
+
+// Z-index
+$zindex-negative: -1;
+$zindex-zero: 0;
+$zindex-first: 10;
+$zindex-second: 20;
+$zindex-third: 30;
+$zindex-fourth: 40;
+$zindex-fifth: 50;
+$zindex-topmost: 9999;
+
+// transition easing
+$cubic: cubic-bezier(.4,0,.2,1);

@@ -1,0 +1,226 @@
+//- include ./data.pug
+- 
+	const cards = [
+		{
+			bg: 'sky', 
+			case: 'ny-app-korovka', 
+			img: {
+				sm: 'ny-app-sm',
+				md: 'ny-app-md',
+				lg: 'ny-app-lg'
+			}, 
+			url: 'https://korovka.by/ru/products/podarochnye-nabory',
+			btnPswp: false,
+			title: 'Developing promo section of the site with the opportunity collect, print and download your set of gifts',
+			description: 'Works: concept, prototyping in Adobe XD, making 3d product card animations, frontend and backend (Drupal) development. Stack of technologies. Templating: pugjs, postcss. Creation html from pug tpl, bundling scripts and assets, code splitting: webpack. UI Widgets - Collection, Status bar, Share link to product with friends, Printing and downloading collection in PDF: React. State managment: Redux. Powered by Drupal 7.'
+		}, 
+		{
+			bg: 'red', 
+			case: 'case-map-app', 
+			btnPswp: false,
+			img: {
+				sm: 'map-app-sm',
+				md: 'map-app-md',
+				lg: 'map-app-lg'
+			},
+			url: 'https://korovka.by/ru/franchaising',
+			hdBg: require('../../../public/project-card/images/korovka-geo-app.jpg'),
+			
+			title: 'Developing B2B section of the site for new franchasing service',
+			description: 'Works: concept, prototyping in Adobe XD, frontend and backend (Drupal) development. Stack of technologies. Templating: pugjs, postcss. Creation html from pug tpl, bundling scripts and assets: webpack. UI Widget - Stores map: React.'
+
+		}, 
+		{
+			bg: 'lightGreen', 
+			case: 'case-clicken', 
+			hdBg: require('../../../public/project-card/images/clicken-section.jpg'),
+			btnPswp: false,
+			url: 'https://clicken.by/',
+			img: {
+				sm: 'clicken-sm',
+				md:	 'clicken-md',
+				lg: 'clicken-lg',
+			},
+			title: 'Coding responsive html-template by given design and turn it into website based on WordPress',
+			description: 'Works: coding html template for landing page. Making lightweight scripts for sliders and popup windows, lazy loading and initializing libraries like ChartJS and Google Maps. Backend (WordPress) development. Stack of technologies. Templating: pugjs, postcss. Creation html from pug tpl, bundling scripts and assets, code splitting: webpack.'
+		}, 
+		{
+			bg: 'duskyCitron', 
+			case: 'case-korovka-adaptive', 
+			hdBg: require('../../../public/project-card/images/korovka-adaptive-case-bg.jpg'),
+			url: 'https://korovka.by/',
+			img: {
+				sm: 'korovka-adaptive-sm',
+				md:	 'korovka-adaptive-sm',
+				lg: 'korovka-adaptive-sm',
+			},
+			title: 'Turning all sections desktop version of the site into fully adaptive pages',
+			description: 'Works: prototyping adaptive pages for all sections of the site, development adaptive templates (15 types) and necessary widgets for mobile menus, responsive sliders and others, editing PHP (Drupal) templates. Stack of technologies: pugjs, scss, jquery, gulp.'
+		}, 
+
+		{
+			bg: 'princessBlue', 
+			case: 'korovka-facet-filter', 
+			url: 'https://korovka.by/ru/products',
+			img: {
+				sm: 'korovka-facet-filter-sm',
+				md: 'korovka-facet-filter-md',
+				lg: 'korovka-facet-filter-lg',
+			},
+			hdBg: require('../../../public/project-card/images/facet-filter-bg.jpg'),
+			title: 'Designing and developing adaptive product listing template and filter functionality for it',
+			description: 'Designing and developing adaptive product listing template and filter functionality for it'
+		}, 
+		
+		{
+			bg: 'deem', 
+			case: 'case-amp', 
+			url: 'https://top-pro.by/amp',
+			btnPswp: false,
+			img: {
+				sm: 'amp-sm',
+				md: 'amp-sm',
+				lg: 'amp-sm',
+			},
+			title: 'Developing multi page AMP-version of the regular client site',
+			description: 'Works: research in a short time new AMP technology and turn all regular sections of the client website into fast and smooth-loading AMP pages for better rankings in mobile search results. Stack of technologies: no plugins, only Google AMP HTML framework.'
+		}, 
+		
+		{
+			bg: 'violet', 
+			case: 'designpack-wp', 
+			hdBg: require('../../../public/project-card/images/designpack-bg.jpg'),
+			url: 'https://design-pack.biz/',
+			img: {
+				sm: 'designpack-sm',
+				md: 'designpack-md',
+				lg: 'designpack-lg',
+			},
+			title: 'Coding adaptive html-templates by given designs and turn it into website based on WordPress',
+			description: 'Works: coding html templates, backend (WordPress) development. Stack of technologies: pugjs, scss, jquery, gulp.'
+		}, 
+	]
+
+.projects-section#projects
+	.l-wrap
+		.projects
+			ul.ul-reset.content-tabs.projects__tabs
+				li.content-tabs__item.content-tabs__item_active 
+					button.btn-reset My Projects
+				//- li.content-tabs__item.h2 
+				//- 	button.btn-reset Opensource
+			
+			
+			ul.ul-reset.projects__list
+				each c, i in cards
+					li.projects__item
+						//- project card
+						div(class=`project-card project-card_${c.bg} ${c.case}`)
+							
+							.project-card__grid
+								.project-card__bg-layer(data-hd-bg=`${c.hdBg ? c.hdBg : ''}`)
+									//- img.project-card__bg(src=require('./images/pattern-ny.jpg') alt="project's background")
+									
+									.project-card__svg-mask
+										svg.project-card__mask
+											use(xlink:href=require('../../../../images/public/svg/mask/maska.svg') +'#maska')
+										//-img(src=require('../projects-section/images/svg/mask.svg') alt="")
+									//- span.santa
+									if (c.case === 'ny-app-korovka')
+										svg.icon-svg.icon-svg_reindeer
+											use(xlink:href=require('../../../public/project-card/images/svg/reindeer.svg') + "#reindeer")
+								.project-card__description
+									if (c.case === 'ny-app-korovka')
+										svg.icon-svg.icon-svg_baubles
+											use(xlink:href=require('../../../public/project-card/images/svg/baubles.svg') + "#baubles")
+									h2.project-card__title= c.title
+									p.project-card__short-review= c.description
+									.project-card__btn-group
+										if c.btnPswp
+											button(class=`button button_transparent button_outlined project-card__btn pswp-gallery pswp-gallery_case` data-case-gallery-id=`pswp-gallery-${c.case}`) 
+												svg.button__icon.project-card__btn-icon.project-card__btn-icon_play
+													use(xlink:href=require('../../../public/project-card/images/svg/play.svg') + "#play")
+												span Reviews
+										a(href=c.url target="_blank").button.button_transparent.button_outlined.project-card__btn.project-card__btn_more 
+											svg.button__icon.project-card__btn-icon_link.project-card__btn-icon
+												use(xlink:href=require('../../../public/project-card/images/svg/link.svg') + "#link")
+											| See project
+									//- ul(id=`pswp-gallery-${c.case}` class="hidden-gallery").ul-reset
+									//- 	each item, i in c.videoGallery
+									//- 		li
+									//- 			a(href=item.vSrc data-video-thumb=item.vThumb data-title=item.title)
+								.project-card__showcase
+									.showcase-browser
+										.showcase-browser__status-bar
+											.showcase-browser__buttons
+										.showcase-browser__tab-bar
+										.showcase-browser__window
+											.showcase-browser__svg-icon
+												.showcase-browser__mouse-icon
+													//- use(xlink:href=require('./images/svg/mouse-scroll.svg') + '#mouse-scroll')
+											.loader.showcase-browser__loader
+											picture
+												source(
+													media="(max-width: 567px)"
+													data-srcset-webp=require(`../../posts/images/${c.img.sm}.webp`) 
+													type="image/webp"
+												)
+												source(
+													media="(max-width: 567px)"
+													data-srcset=require(`../../posts/images/${c.img.sm}.jpg`) 
+													type="image/jpeg"
+												)
+												source(
+													media="(min-width: 568px) and (max-width: 1024px)"
+													data-srcset-webp=require(`../../posts/images/${c.img.md}.webp`) 
+													type="image/webp"
+												)
+												source(
+													media="(min-width: 568px) and (max-width: 1023px)"
+													data-srcset=require(`../../posts/images/${c.img.md}.jpg`) 
+													type="image/jpeg"
+												)
+												source(
+													media="(min-width: 1024px)"
+													data-srcset-webp=require(`../../posts/images/${c.img.lg}.webp`) 
+													type="image/webp"
+												)
+												source(
+													media="(min-width: 1024px)"
+													data-srcset=require(`../../posts/images/${c.img.lg}.jpg`) 
+													type="image/jpeg"
+												)
+												img.showcase-browser__img(
+													data-img-src=require(`../../posts/images/ny-app-lg.jpg`)
+													alt=c.title draggable="false"
+												)
+											
+						
+						
+						
+						//-.project-preview
+							.project-preview__top
+								.project-preview__icon
+									img(src=require('./images/' + p[1]) alt="project link")
+								a(href="#").project-preview__uri= p[0]
+							p.project-preview__short-note.project-preview__short-note_un= p[2]
+
+
+
+		
+		//- .opensource
+		//- 	.opensource__top
+		//- 		h2 Opensource
+		//- 		p Summary stack: React, Redux, Webpack, Pug, PostCss, SCSS, WordPress, Drupal 7, Next.js
+		//- 	ul.ul-reset.uk-reset.opensource__list
+		//- 		each op, i in Array(4).fill(['Calendar Component', 'Developing WordPress theme for Barbershop site with Webpack and performance in mind'])
+		//- 			li.projects__item.projects__item_github
+		//- 				.project-preview.project-preview_github
+		//- 					.project-preview__top
+		//- 						.project-preview__icon.project-preview__icon_accent
+		//- 							svg.svg-icon
+		//- 								use(xlink:href=require('./images/svg/github.svg') + '#github')
+		//- 						a(href="#").project-preview__uri= op[0]
+		//- 					p.project-preview__short-note= op[1]
+		//- 					a(href="#").button.button_transparent.button_outlined Read More
+		//- p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi facere, ipsa inventore modi quos error natus quo facilis voluptatibus suscipit aut optio quod aspernatur ut labore quis commodi sint voluptas!

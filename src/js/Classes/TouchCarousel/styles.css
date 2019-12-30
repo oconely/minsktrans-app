@@ -1,0 +1,18 @@
+.touch-carousel {
+    position: relative;
+}
+
+.touch-carousel__arrows {
+    display: none;
+}
+
+.touch-carousel__arrow {
+    transition: transform 0.1s;
+    will-change: transform;
+}
+
+.touch-carousel__arrow:active {
+    transform: scale(0.9);
+}
+
+

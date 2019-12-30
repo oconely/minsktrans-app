@@ -1,0 +1,6 @@
+@import '../../../postcss/variables.css';
+
+.page__main {
+    margin-top: toRem(50);
+    margin-bottom: toRem(250);
+}

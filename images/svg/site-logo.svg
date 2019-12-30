@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" id="site-logo">
+  <g id="logo" transform="translate(0 0.741)">
+    <g id="background" transform="translate(0 -0.444)">
+      <rect id="Rectangle_22" data-name="Rectangle 22" width="45" height="45" transform="translate(0 -0.297)" fill="none"/>
+    </g>
+    <g id="sourcecode" transform="translate(0 8.119)">
+      <path id="Path_78" data-name="Path 78" d="M22,28.24V33.8L35.9,19.9,22,6v5.56l8.34,8.34Z" transform="translate(8.58 -6)" fill=""/>
+      <path id="Path_79" data-name="Path 79" d="M13.9,28.24V33.8L0,19.9,13.9,6v5.56L5.56,19.9Z" transform="translate(0 -6)" fill=""/>
+      <path id="Path_80" data-name="Path 80" d="M10,23.12h5.56L26.68,12H21.12Z" transform="translate(3.9 -3.66)" fill=""/>
+    </g>
+  </g>
+</svg>
