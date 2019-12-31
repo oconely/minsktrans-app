@@ -1,0 +1,9 @@
+@import '../../../postcss/variables.css';
+
+.BusRoute {
+
+}
+
+.BusRoute_active {
+    background: $accent;
+}
