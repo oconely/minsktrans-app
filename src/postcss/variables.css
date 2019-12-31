@@ -23,15 +23,7 @@ $baseLineHeight: 1.45;
 
 // Font Family
 $sansSerif: Arial, Helvetica, sans-serif;
-$RobotoRegular: 'Roboto-Refular', $sansSerif;
-$RobotoLight: 'Roboto-Light', $sansSerif;
-$QuicksandRegular: 'Quicksand-Regular', $sansSerif;
-$BarlowLight: 'Barlow-Light', $sansSerif;
-$Microma: 'Microma', $sansSerif;
-$MuliRegular: 'Muli-Regular', $sansSerif;
-$MuliBlack: 'Muli-Black', $sansSerif;
-$MuliBold: 'Muli-Bold', $sansSerif;
-$MuliBlackItalic: 'Muli-Black-Italic', $sansSerif;
+$RobotoRegular: 'Roboto-Regular', $sansSerif;
 
 
 // Grid

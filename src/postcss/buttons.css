@@ -1,7 +1,7 @@
 @import './variables.css';
 
 .button {
-    font-family: $MuliRegular;
+    font-family: $RobotoRegular;
     display: inline-block;
     padding: toRem(7) toRem(12);
     font-size: toRem(19);

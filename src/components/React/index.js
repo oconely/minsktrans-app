@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { Map, YMaps, Placemark, GeoObject } from 'react-yandex-maps';
-import Banner from './Banner';
+import { Map, YMaps, Placemark, } from 'react-yandex-maps';
 import RoutesList from './RoutesList';
 import axios from 'axios';
 import { parse } from 'papaparse'
 import { checkRoutesCondition, toGPS } from './utils';
 import uuid from 'uuid';
+import Sidebar from './Sidebar';
 
-const proxy = 'https://gp-js-test.herokuapp.com/proxy/';
+import './index.css';
+
+const proxy = 'https://gp-js-test.herokuapp.com/proxy';
 
 class MinskTransApp extends Component {
 
@@ -23,8 +25,8 @@ class MinskTransApp extends Component {
 
     async componentDidMount() {
             const data = await Promise.all([
-                axios.get('http://www.minsktrans.by/city/minsk/routes.txt'),
-                axios.get('http://www.minsktrans.by/city/minsk/stops.txt')
+                axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/routes.txt`),
+                axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/stops.txt`)
             ])
             const [routes, stops] = data;
             const parsedRoutes = parse(routes.data);
@@ -54,37 +56,39 @@ class MinskTransApp extends Component {
                 filteredStops = busStops.filter(s => stopsIds.includes(s[0]));
             }
         }
-        const stops = [];
         return(
-            <>
-                <YMaps>
-                    <Map 
-                        state={{center: [53.919749, 27.577372], zoom: 12}} 
-                        width="100%" 
-                        height="100vh"
-                        // modules={['templateLayoutFactory']}
-                    >
-                        {filteredStops && filteredStops.map(s =>
-                            <Placemark 
-                                key={uuid()}
-                                geometry={[ toGPS(s[7]), toGPS(s[6]) ]}
-                                properties={{
-                                    balloonContentHeader: "Остановка",
-                                    balloonContent: `<strong>${s[4]}</strong>`
-                                }}
-                                modules={["geoObject.addon.balloon"]}
+            <div className="App">
+                    <Sidebar>
+                        { busRoutes && 
+                            <RoutesList 
+                                routes={busRoutes}
+                                handleClickByRoute={this.handleClickByRoute}
+                                activeRouteId={activeRouteId}
                             />
-                        )}
-                    </Map>
-                </YMaps>
-                { this.state.busRoutes &&
-                    <RoutesList 
-                        routes={busRoutes}
-                        handleClickByRoute={this.handleClickByRoute}
-                        activeRouteId={activeRouteId}
-                    />
-                }
-            </>
+                        }
+                    </Sidebar>
+                <div className="RoutesMap">
+                    <YMaps>
+                        <Map 
+                            state={{center: [53.919749, 27.577372], zoom: 12}} 
+                            width="100%" 
+                            height="100vh"
+                        >
+                            {filteredStops && filteredStops.map(s =>
+                                <Placemark 
+                                    key={uuid()}
+                                    geometry={[ toGPS(s[7]), toGPS(s[6]) ]}
+                                    properties={{
+                                        balloonContentHeader: "Остановка",
+                                        balloonContent: `<strong>${s[4]}</strong>`
+                                    }}
+                                    modules={["geoObject.addon.balloon"]}
+                                />
+                            )}
+                        </Map>
+                    </YMaps>
+                </div>
+            </div>
         )
     }
 }

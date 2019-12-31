@@ -3,6 +3,7 @@ export const checkRoutesCondition = r =>
 
 
 export const toGPS = (bs) => {
+    if (!bs) return;
     const tmp = bs.split('');
     tmp.splice(2, 0, '.');
     return parseFloat(tmp.join(''));

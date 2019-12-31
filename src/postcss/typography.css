@@ -4,12 +4,12 @@
 h1, h2, h3, h4 {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
-	font-family: 'Muli-Black';
+	font-family: $RobotoRegular;
 	color: inherit;
 }
 
 h1 {
-    font-family: $MuliBlackItalic;
+    font-family: $RobotoRegular;
     font-size: toRem(25);
 
     @media (min-width: $sm) {

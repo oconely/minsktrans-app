@@ -3,8 +3,6 @@ import './RoutesList.css';
 import uuid from 'uuid'
 import BusRoute from '../BusRoute';
 
-const handleClick = () => {}
-
 const RoutesList = ({ routes, handleClickByRoute, activeRouteId }) => 
     <div className="RoutesList">
         <ul className="ul-reset RoutesList__inner">
@@ -15,6 +13,7 @@ const RoutesList = ({ routes, handleClickByRoute, activeRouteId }) =>
                     onClick={handleClickByRoute}
                     routeId={r[12]}
                     isActive={activeRouteId === r[12]}
+                    busNumber={r[0]}
                 />
             )}
         </ul>

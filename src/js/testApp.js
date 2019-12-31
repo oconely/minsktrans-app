@@ -4,6 +4,6 @@ import MinskTransApp from "../components/React";
 
 
 ReactDOM.render(
-    <MinskTransApp text={'Hey Ho, Let\'s go!'} />,
+    <MinskTransApp />,
     document.getElementById('root')
 )

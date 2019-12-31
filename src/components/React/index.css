@@ -1,0 +1,10 @@
+@import '../../postcss/variables.css';
+
+.App {
+    display: flex;
+}
+
+.RoutesMap {
+    flex: 1;
+    height: 100%;
+}

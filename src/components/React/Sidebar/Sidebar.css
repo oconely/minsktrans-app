@@ -1,0 +1,14 @@
+@import '../../../postcss/variables.css';
+
+.Sidebar {
+    background: white;
+    height: 100vh;
+    overflow-y: scroll;
+    position: relative;
+    width: 60%;
+    flex-shrink: 0;
+
+    @media (min-width: $md) {
+        width: 30%;
+    }
+}
