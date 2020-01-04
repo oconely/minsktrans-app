@@ -92,3 +92,7 @@ code[class*="language-"], pre[class*="language-"] {
 	white-space: pre-wrap !important;
 }
 
+.Button svg {
+	width: 20px;
+	height: 20px;
+}

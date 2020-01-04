@@ -32,7 +32,6 @@ export default routesAndStops;
 export const getRoutes = (state, query) => state.data.routes?.data.slice(1, -1).filter((r, i, a) => {
     const routeTitle = r[10]
     return routeTitle && routeTitle.toLowerCase().includes(query.toLowerCase());
-    // r[10].toLowerCase().includes(query.toLowerCase())
 });
 export const getDataPending = state => state.pending;
 export const getDataError = state => state.error;

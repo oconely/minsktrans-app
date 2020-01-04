@@ -11,6 +11,9 @@ import { setDataLoaded } from '../../../redux/actions';
 
 import './MinskTransApp.css'
 import RoutesList from '../RoutesList/RouteList';
+import Icon from '../SVGIcon';
+import Bar from '../Bar/Index';
+import Button from '../Button';
 
 const proxy = 'https://gp-js-test.herokuapp.com/proxy';
 
@@ -23,29 +26,6 @@ class MinskTransApp extends Component {
             busStops: null,
             activeRouteId: null
         }
-        this.handleClickByRoute = this.handleClickByRoute.bind(this);
-    }
-
-    async componentDidMount() {
-        // const data = await Promise.all([
-        //     axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/routes.txt`),
-        //     axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/stops.txt`)
-        // ]);
-        // const [ routes, stops ] = data;
-        // const parsedRoutes = parse(routes.data);
-        // const parsedStops = parse(stops.data);
-        // const filteredRoutes = parsedRoutes.data.filter(r => checkRoutesCondition(r));
-        // this.setState({
-        //     busRoutes: filteredRoutes,
-        //     busStops: parsedStops.data
-        // });
-        // store.dispatch(setDataLoaded())
-    }
-
-    handleClickByRoute(id) {
-        this.setState({
-            activeRouteId: id
-        })
     }
 
     render() {
@@ -66,9 +46,26 @@ class MinskTransApp extends Component {
                     <RoutesList />
                 </Sidebar>
                 <div className="RoutesMap">
+                    <Bar>
                     <SearchInput 
                         placeholderText="Введите номер или часть названия маршрута" 
                     />
+                        <Button className="btn-reset">
+                            <Icon name="bus" />
+                        </Button>
+                        <Button className="btn-reset">
+                            <Icon name="trol" />
+                        </Button>
+                        <Button className="btn-reset">
+                            <Icon name="tram" />
+                        </Button>
+                        <Button className="btn-reset">
+                            A>B
+                        </Button>
+                        <Button className="btn-reset">
+                            B>A
+                        </Button>
+                    </Bar>
                     <YMaps>
                         <Map 
                             state={{center: [53.919749, 27.577372], zoom: 12}} 
