@@ -10,8 +10,8 @@ const CreateSvgSprite = require('../plugins/CreateSvgSprite');
 exports.pages = (mode) => {
     return ({
     entry: { 
-        testApp: [
-            path.resolve('./src/js/testApp.js'),
+        app: [
+            path.resolve('./src/js/app.js'),
             path.resolve('./src/postcss/core.css'), 
             ...glob.sync('./src/components/pages/index/**/*.css'), // get all paths to styles for components
         ],
@@ -23,10 +23,9 @@ exports.pages = (mode) => {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            filename: 'testApp.html',
+            filename: 'minskTransApp.html',
             template: path.resolve('./src/pages/proj/index.pug'),
             title: 'Minsktrans React App | Shows stops for regular bus routes. Enjoy 🚌',
-            // excludeChunks: ['post']
         })
     ]
 });

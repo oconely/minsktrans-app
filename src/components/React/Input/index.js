@@ -7,12 +7,11 @@ const Input = ({ placeholderText = "", handleChange, isDataLoaded }) => {
         <input 
             ref={node => input = node}
             className="SearchInput" 
-            onChange={handleChange}
+            onChange={() => handleChange(input.value)}
             placeholder={placeholderText}
-            disabled={isDataLoaded}
+            disabled={!isDataLoaded}
         />
     );
 }
 
 export default Input;
-
