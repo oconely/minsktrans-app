@@ -21,3 +21,8 @@ export const fetchDataError = (error) => ({
     type: "FETH_DATA_ERROR",
     error
 });
+
+export const changeFilters = (filterName) => ({
+    type: "CHANGE_FILTERS",
+    filterName
+});

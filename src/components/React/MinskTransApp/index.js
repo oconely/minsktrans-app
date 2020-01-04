@@ -14,6 +14,7 @@ import RoutesList from '../RoutesList/RouteList';
 import Icon from '../SVGIcon';
 import Bar from '../Bar/Index';
 import Button from '../Button';
+import FilterButton from '../FilterButton';
 
 const proxy = 'https://gp-js-test.herokuapp.com/proxy';
 
@@ -47,24 +48,24 @@ class MinskTransApp extends Component {
                 </Sidebar>
                 <div className="RoutesMap">
                     <Bar>
-                    <SearchInput 
-                        placeholderText="Введите номер или часть названия маршрута" 
-                    />
-                        <Button className="btn-reset">
+                        <SearchInput 
+                            placeholderText="Введите номер или часть названия маршрута" 
+                        />
+                        <FilterButton filter="bus">
                             <Icon name="bus" />
-                        </Button>
-                        <Button className="btn-reset">
-                            <Icon name="trol" />
-                        </Button>
-                        <Button className="btn-reset">
+                        </FilterButton>
+                        <FilterButton filter="tram">
                             <Icon name="tram" />
-                        </Button>
-                        <Button className="btn-reset">
+                        </FilterButton>
+                        <FilterButton filter="trol">
+                            <Icon name="trol" />
+                        </FilterButton>
+                        <FilterButton filter="a>b">
                             A>B
-                        </Button>
-                        <Button className="btn-reset">
+                        </FilterButton>
+                        <FilterButton filter="b>a">
                             B>A
-                        </Button>
+                        </FilterButton>
                     </Bar>
                     <YMaps>
                         <Map 

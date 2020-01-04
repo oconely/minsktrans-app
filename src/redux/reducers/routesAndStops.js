@@ -29,9 +29,12 @@ const routesAndStops = (state = intialState, action) => {
 
 export default routesAndStops;
 
-export const getRoutes = (state, query) => state.data.routes?.data.slice(1, -1).filter((r, i, a) => {
-    const routeTitle = r[10]
-    return routeTitle && routeTitle.toLowerCase().includes(query.toLowerCase());
+export const getRoutes = (state, query, filters) => state.data.routes?.data.slice(1, -1).filter((r, i, a) => {
+    const routeTransportType = r[8].toLowerCase();
+    const routeTitle = r[10];
+    return routeTitle 
+        && routeTitle.toLowerCase().includes(query.toLowerCase()) 
+        && filters.includes(routeTransportType);
 });
 export const getDataPending = state => state.pending;
 export const getDataError = state => state.error;

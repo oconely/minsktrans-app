@@ -17,6 +17,7 @@ class RoutesListContainer extends Component {
     }
 
     render() {
+
         const { error } = this.props;
         return(
             error ? (
@@ -33,7 +34,7 @@ class RoutesListContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         error: getDataError(state.routesAndStops),
-        routes: getRoutes(state.routesAndStops, state.searchQuery),
+        routes: getRoutes(state.routesAndStops, state.searchQuery, state.filters),
         pending: getDataPending(state.routesAndStops)
     }
 };
