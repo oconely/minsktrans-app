@@ -1,6 +1,6 @@
 const isDataLoaded = (state = false, action) => {
     switch (action.type) {
-        case "SET_DATA_LOADED":
+        case "FETCH_DATA_SUCCESS":
             return true;
         default:
             return state;

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchDataAction from '../../../redux/actions/fetchData';
 import RoutesList from '.';
-import { getDataError, getRoutes, getDataPending } from '../../../redux/reducers/busRoutesAndStops';
+import { getDataError, getRoutes, getDataPending } from '../../../redux/reducers/routesAndStops';
 
 class RoutesListContainer extends Component {
 
@@ -17,7 +17,6 @@ class RoutesListContainer extends Component {
     }
 
     render() {
-        console.log(this.props)
         const { error } = this.props;
         return(
             error ? (
@@ -31,12 +30,13 @@ class RoutesListContainer extends Component {
     }
 }
 
-
-const mapStateToProps = (state) => ({
-    error: getDataError(state.busRoutesAndStops),
-    busRoutesAndStops: getRoutes(state.busRoutesAndStops),
-    pending: getDataPending(state.busRoutesAndStops)
-});
+const mapStateToProps = (state) => {
+    return {
+        error: getDataError(state.routesAndStops),
+        routes: getRoutes(state.routesAndStops, state.searchQuery),
+        pending: getDataPending(state.routesAndStops)
+    }
+};
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     fetchData: fetchDataAction

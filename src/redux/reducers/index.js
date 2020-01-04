@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 import isDataLoaded from './isDataLoaded';
 import searchQuery from './searchQuery';
-import busRoutesAndStops from './busRoutesAndStops';
+import routesAndStops from './routesAndStops';
 
 
 const minskTransApp = combineReducers({
     isDataLoaded,
     searchQuery,
-    busRoutesAndStops    
+    routesAndStops    
 });
 
 export default minskTransApp;
