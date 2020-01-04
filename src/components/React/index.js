@@ -6,6 +6,8 @@ import { parse } from 'papaparse'
 import { checkRoutesCondition, toGPS } from './utils';
 import uuid from 'uuid';
 import Sidebar from './Sidebar';
+import SearchInput from './SearchInput';
+
 
 import './index.css';
 
@@ -24,18 +26,18 @@ class MinskTransApp extends Component {
     }
 
     async componentDidMount() {
-            const data = await Promise.all([
-                axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/routes.txt`),
-                axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/stops.txt`)
-            ])
-            const [routes, stops] = data;
-            const parsedRoutes = parse(routes.data);
-            const parsedStops = parse(stops.data);
-            const filteredRoutes = parsedRoutes.data.filter(r => checkRoutesCondition(r));
-            this.setState({
-                busRoutes: filteredRoutes,
-                busStops: parsedStops.data
-            });
+        // const data = await Promise.all([
+        //     axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/routes.txt`),
+        //     axios.get(`${proxy}/http://www.minsktrans.by/city/minsk/stops.txt`)
+        // ]);
+        // const [ routes, stops ] = data;
+        // const parsedRoutes = parse(routes.data);
+        // const parsedStops = parse(stops.data);
+        // const filteredRoutes = parsedRoutes.data.filter(r => checkRoutesCondition(r));
+        // this.setState({
+        //     busRoutes: filteredRoutes,
+        //     busStops: parsedStops.data
+        // });
     }
 
     handleClickByRoute(id) {
@@ -58,16 +60,19 @@ class MinskTransApp extends Component {
         }
         return(
             <div className="App">
-                    <Sidebar>
-                        { busRoutes && 
-                            <RoutesList 
-                                routes={busRoutes}
-                                handleClickByRoute={this.handleClickByRoute}
-                                activeRouteId={activeRouteId}
-                            />
-                        }
-                    </Sidebar>
+                <Sidebar>
+                    { busRoutes && 
+                        <RoutesList 
+                            routes={busRoutes}
+                            handleClickByRoute={this.handleClickByRoute}
+                            activeRouteId={activeRouteId}
+                        />
+                    }
+                </Sidebar>
                 <div className="RoutesMap">
+                    <SearchInput 
+                        placeholderText="Введите номер или часть названия маршрута" 
+                    />
                     <YMaps>
                         <Map 
                             state={{center: [53.919749, 27.577372], zoom: 12}} 
@@ -89,7 +94,7 @@ class MinskTransApp extends Component {
                     </YMaps>
                 </div>
             </div>
-        )
+        );
     }
 }
 
