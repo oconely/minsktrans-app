@@ -5,7 +5,9 @@ import './BusRoute.css';
 const BusRoute = ({ routeName, onClick, routeId, isActive, busNumber }) => 
     <li 
         className={`BusRoute ${isActive ? 'BusRoute_active' : ''}`}
-        onClick={() => onClick(routeId)}
+        onClick={() => {
+            console.log(routeId)
+            onClick(routeId)}}
     >
         <span className="BusRoute__number">
             {busNumber}

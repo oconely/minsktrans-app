@@ -26,3 +26,16 @@ export const changeFilters = (filterName) => ({
     type: "CHANGE_FILTERS",
     filterName
 });
+
+const changeActiveRouteId = (id) => {
+    return {
+        type: "CHANGE_ACTIVE_ROUTE",
+        id  
+    }
+     
+}
+
+
+export const handleClickByRouteAction = id => dispatch => {
+    dispatch(changeActiveRouteId(id));
+}
