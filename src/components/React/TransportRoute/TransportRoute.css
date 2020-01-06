@@ -5,32 +5,46 @@
     --infoIconColor: var(--accentColor, #000);
     --dayTextColor: var(--accentColor, #000);
     --dayBorderColor: color(#707070 a(21%));
+    --dayWeekendBg: color($blue tint(40%));
+    --dayWeekendColor: #fff;
 }
 
 .TransportRoute {
     font-family: $RobotoRegular;
-    padding: toRem(20);
+    padding: toRem(20) toRem(15) toRem(20) toRem(20);
     transition: background 0.15s ease-in-out; 
     cursor: pointer;   
     display: grid;
     grid-template-areas: "route-weekdays route-weekdays route-options" "route-number route-name route-name";
-    grid-template-columns: min-content 2fr 1fr;
+    grid-template-columns: minmax(toRem(118), auto) 2fr 1fr;
+    grid-template-rows: repeat(2, min-content);
+    grid-row-gap: toRem(20);
+    grid-column-gap: toRem(10);
     align-items: center;
+    border-bottom: 1px var(--accentColor, $accent) solid;
+    align-content: space-around;
 }
 
 .TransportRoute__number {
-    margin-right: toRem(30);
+    margin-right: toRem(10);
     grid-area: route-number;
     display: flex;
+    align-items: baseline;
+    font-size: toRem(38);
+    line-height: 1;
+    font-family: $RobotoBold;
+    color: var(--accentColor, $accent);
 }
 
 .TransportRoute:not(.TransportRoute_active):hover {
-    background: color($accent tint(80%));
+    background: color($accent tint(92%));
 }
 
-.TransportRoute_active {
+.TransportRoute.TransportRoute_active {
     --accentColor: #fff;
     --dayBorderColor: var(--accentColor, #fff);
+    --dayWeekendBg: #fff;
+    --dayWeekendColor: $blue;
 }
 
 .TransportRoute_active {
@@ -43,6 +57,10 @@
     justify-self: flex-end;
 }
 
+.TransportRoute__direction {
+    margin-right: 10px;
+}
+
 .TransportRoute__info-button {
     width: 22px;
     height: 22px;
@@ -52,6 +70,8 @@
     width: 100%;
     height: 100%;
     fill: var(--infoIconColor, $accent);
+    margin-left: toRem(7);
+    flex-shrink: 0;
 }
 
 .TransportRoute__icon_info {
@@ -67,4 +87,6 @@
 
 .TransportRoute__name {
     grid-area: route-name;
+    font-size: toRem(16);
+    line-height: toRem(24);
 }

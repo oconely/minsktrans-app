@@ -1,0 +1,12 @@
+@import '../../../postcss/variables.css';
+
+.Shield_direction {
+    height: 22px;
+    font-size: toRem(12);
+    display: flex;
+    align-items: center;
+    border: 1px var(--accentColor, $accent) solid;
+    border-radius: toRem(5);
+    padding: toRem(3) toRem(5);
+    color: var(--accentColor, $accent);
+}

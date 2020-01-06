@@ -22,8 +22,10 @@ const TransportRoute = ({
     >
         { weekdays && <WeekDaysList weekdays={weekdays} Day={Shield} /> }
         <div className="TransportRoute__options">
-            <div className="TransportRoute__direction">
+            <Shield className="TransportRoute__direction Shield Shield_direction">
                 {routeDirection}
+            </Shield>
+            <div >
             </div>
             <div className="TransportRoute__info-button">
                 <Icon name="info" className="TransportRoute__icon TransportRoute__icon_info" />

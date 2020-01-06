@@ -14,6 +14,14 @@
     margin-right: toRem(3);
 }
 
+.Day.Day_weekend {
+    background: var(--dayWeekendBg, #B6B6B6);
+}
+
+.Day_weekend .Day__name {
+    color: var(--dayWeekendColor, #fff);
+}
+
 .Day_weekend:not(:last-of-type) {
     margin-left: toRem(10);
 }
@@ -22,6 +30,6 @@
     text-transform: uppercase;
     line-height: 1;
     font-size: toRem(12);
-    font-weight: 900;
+    font-family: $RobotoBold;
     color: var(--dayTextColor);
 }

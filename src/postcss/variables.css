@@ -24,6 +24,8 @@ $baseLineHeight: 1.45;
 // Font Family
 $sansSerif: Arial, Helvetica, sans-serif;
 $RobotoRegular: 'Roboto-Regular', $sansSerif;
+$RobotoBold: 'Roboto-Bold', $sansSerif;
+$RobotoBlack: 'Roboto-Black', $sansSerif;
 
 
 // Grid

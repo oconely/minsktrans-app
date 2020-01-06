@@ -1,4 +1,5 @@
 import React from 'react';
+import './Shield.css';
 
 const Shield = ({ children, className=''}) => (
     <li
