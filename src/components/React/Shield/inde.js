@@ -2,7 +2,7 @@ import React from 'react';
 
 const Shield = ({ children, className=''}) => (
     <li
-        className={`Shield ${className}`}
+        className={className}
     >
         {children}
     </li>

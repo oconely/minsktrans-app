@@ -1,17 +1,27 @@
 @import '../../../postcss/variables.css';
 
 .TransportRoute {
+    --accentColor: $accent;
+    --infoIconColor: var(--accentColor, #000);
+    --dayTextColor: var(--accentColor, #000);
+    --dayBorderColor: color(#707070 a(21%));
+}
+
+.TransportRoute {
     font-family: $RobotoRegular;
     padding: toRem(20);
     transition: background 0.15s ease-in-out; 
     cursor: pointer;   
     display: grid;
+    grid-template-areas: "route-weekdays route-weekdays route-options" "route-number route-name route-name";
+    grid-template-columns: min-content 2fr 1fr;
     align-items: center;
-    --infoIconColor: $accent;
 }
 
 .TransportRoute__number {
     margin-right: toRem(30);
+    grid-area: route-number;
+    display: flex;
 }
 
 .TransportRoute:not(.TransportRoute_active):hover {
@@ -19,9 +29,18 @@
 }
 
 .TransportRoute_active {
+    --accentColor: #fff;
+    --dayBorderColor: var(--accentColor, #fff);
+}
+
+.TransportRoute_active {
     background: color($blue tint(20%));
     color: #fff;
-    --infoIconColor: #fff;
+}
+
+.TransportRoute__options {
+    display: flex;
+    justify-self: flex-end;
 }
 
 .TransportRoute__info-button {
@@ -44,4 +63,8 @@
 .TransportRoute__icon_transport {
     width: 22px;
     height: 22px;
+}
+
+.TransportRoute__name {
+    grid-area: route-name;
 }

@@ -1,0 +1,6 @@
+@import '../../../postcss/variables.css';
+
+.WeekDaysList {
+    display: flex;
+    grid-area: route-weekdays
+}

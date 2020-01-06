@@ -1,0 +1,27 @@
+@import '../../../postcss/variables.css';
+
+.Day {
+    width: 22px;
+    height: 22px;
+    border-radius: toRem(5);
+    border: 1px var(--dayBorderColor, color(#707070 a(21%))) solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Day:not(:last-of-type) {
+    margin-right: toRem(3);
+}
+
+.Day_weekend:not(:last-of-type) {
+    margin-left: toRem(10);
+}
+
+.Day__name {
+    text-transform: uppercase;
+    line-height: 1;
+    font-size: toRem(12);
+    font-weight: 900;
+    color: var(--dayTextColor);
+}
