@@ -5,13 +5,8 @@ import fetchDataAction from '../../../redux/actions/fetchData';
 import RoutesList from '.';
 import { getDataError, getRoutes, getDataPending } from '../../../redux/reducers/routesAndStops';
 import { handleClickByRouteAction } from '../../../redux/actions';
+import { checkCondition } from './utils';
 
-const checkCondition = (route, qeury, filters) => {
-    const { routename, routetype, transport } = route;
-    const isMatchSearchQuery = routename.toLowerCase().includes(qeury.toLowerCase());
-    const isMatchFilters = filters.some(f => [routetype.toLowerCase(), transport].includes(f));
-    return isMatchSearchQuery && isMatchFilters;
-}
 
 class RoutesListContainer extends Component {
 
@@ -19,10 +14,6 @@ class RoutesListContainer extends Component {
         const { fetchData } = this.props;
         fetchData();
     }
-    
-    // shouldComponentUpdate(nextProps) {
-    //     return JSON.stringify(this.props) === JSON.stringify(nextProps) ? false : true
-    // }
 
     render() {
         const { error, pending, searchQuery, filters, routes, activeRouteId } = this.props;

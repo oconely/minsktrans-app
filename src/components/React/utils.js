@@ -13,7 +13,7 @@ export const convertCSVtoObjectsArray = (csv, fn) => {
         const values = l.split(';');
         let route = {};
         keys.forEach((k,i) => {
-            route[k.toLowerCase()] = values[i];
+            route[k.toLowerCase().trim()] = values[i];
         });
         // console.log(routes)
         routes.push(route);
