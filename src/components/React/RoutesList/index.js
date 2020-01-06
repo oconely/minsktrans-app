@@ -15,9 +15,9 @@ let RoutesList = ({ routes, handleClickByRoute, activeRouteId, pending }) => {
                             routeId={r.routeid}
                             isActive={activeRouteId === r.routeid}
                             routeNumber={r.routenum}
-                            weekdays={r.weekdays.split('')}
+                            weekdays={r.weekdays}
                             dateStart={r.datestart.replace(/<br\s*[\/]?>/gi, "\r")}
-                            routeType={r.routetype}
+                            routeDirection={r.routetype}
                             routeOperator={r.operator}
                             transportType={r.transport}
                         />

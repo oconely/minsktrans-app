@@ -1,4 +1,7 @@
 import React from 'react';
+import Icon from '../SVGIcon';
+import './TransportRoute.css';
+import Shield from '../Shield/inde';
 
 const TransportRoute = ({ 
     routeName, 
@@ -8,7 +11,7 @@ const TransportRoute = ({
     routeNumber, 
     dateStart, 
     weekdays,
-    routeType,
+    routeDirection,
     transportType,
     routeOperator 
 }) => (
@@ -16,17 +19,25 @@ const TransportRoute = ({
         className={`TransportRoute ${isActive ? 'TransportRoute_active' : ''}`}
         onClick={() => onClick(routeId)}
     >
-        <div className="TransportRoute__weekdays">
-
+        {weekdays && 
+            <ul className="ul-reset TransportRoute__weekdays">
+                {weekdays.map((d, i) => 
+                    <Shield key={i}>{d}</Shield>
+                )}
+            </ul>
+        }
+        <div className="TransportRoute__direction">
+            {routeDirection}
+        </div>
+        <div className="TransportRoute__info-button">
+            <Icon name="info" className="TransportRoute__icon TransportRoute__icon_info" />
         </div>
         <div className="TransportRoute__number">
             {routeNumber}
+            <Icon name={transportType} className="TransportRoute__icon TransportRoute__icon_transport" />
         </div>
-        <div className="BusRoute__name">
+        <div className="TransportRoute__name">
             {routeName}
-        </div>
-        <div className="BusRoute__name">
-            {dateStart}
         </div>
     </li>
 );
