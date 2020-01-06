@@ -1,10 +1,8 @@
 @import '../../../postcss/variables.css';
 
 .RoutesList {
-
-}
-
-.RoutesList__inner {
     display: grid;
     grid-auto-rows: 1fr;
+    /* overflow-y: hidden; */
+    /* max-height: 100vh; */
 }

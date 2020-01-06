@@ -8,6 +8,7 @@ import FilterButton from '../FilterButton';
 import TestRenderButton from '../TestRenderButton';
 import AppMap from '../AppMap';
 import './MinskTransApp.css'
+import StatusBar from '../StatusBar';
 
 
 class MinskTransApp extends Component {
@@ -15,10 +16,11 @@ class MinskTransApp extends Component {
         return(
             <div className="App">
                 <Sidebar>
+                    <StatusBar />
                     <RoutesList />
                 </Sidebar>
                 <div className="RoutesMap">
-                    <Bar>
+                    <Bar className="Bar_main">
                         <SearchInput 
                             placeholderText="Введите номер или часть названия маршрута" 
                         />

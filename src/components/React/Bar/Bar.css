@@ -1,0 +1,11 @@
+@import '../../../postcss/variables.css';
+
+.Bar {
+
+}
+
+.Bar_main {
+    position: absolute;
+    z-index: 1;
+}
+

@@ -11,7 +11,7 @@
 
 .TransportRoute {
     font-family: $RobotoRegular;
-    padding: toRem(20) toRem(15) toRem(20) toRem(20);
+    padding: toRem(20) toRem(25) toRem(20) toRem(20);
     transition: background 0.15s ease-in-out; 
     cursor: pointer;   
     display: grid;

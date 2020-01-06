@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchDataAction from '../../../redux/actions/fetchData';
@@ -6,13 +6,24 @@ import RoutesList from '.';
 import { getDataError, getRoutes, getDataPending } from '../../../redux/reducers/routesAndStops';
 import { handleClickByRouteAction } from '../../../redux/actions';
 import { checkCondition } from './utils';
+import withSmoothScrollbar from './withSmoothScrollBar';
 
+const RoutesListWithSmoothScrollbar = withSmoothScrollbar(RoutesList);
 
 class RoutesListContainer extends Component {
+    
+    scrollbar = createRef();
 
     componentDidMount() { 
         const { fetchData } = this.props;
         fetchData();
+    }
+
+    componentDidUpdate() {
+        // const { scrollbar } = this.scrollbar.current
+        // if (scrollbar) {
+        //     console.log(scrollbar.scrollTop = 0)
+        // }
     }
 
     render() {
@@ -27,7 +38,15 @@ class RoutesListContainer extends Component {
         }
 
         return(
-            error ? <div>{error}</div> : <RoutesList routes={filteredRoutes} pending={pending} handleClickByRoute={this.props.handleClickByRoute} activeRouteId={activeRouteId} />
+            error ? 
+                <div>{error}</div> : 
+                <RoutesListWithSmoothScrollbar 
+                    routes={filteredRoutes} 
+                    pending={pending} 
+                    handleClickByRoute={this.props.handleClickByRoute} 
+                    activeRouteId={activeRouteId} 
+                    ref={this.scrollbar}
+                />
         )
     }
 }

@@ -1,0 +1,30 @@
+@import '../../../postcss/variables.css';
+
+.StatusBar {
+    box-shadow: 0 5px 17px color(#000 a(16%));
+    position: relative;
+    z-index: 1;
+}
+
+.StatusBar__row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.StatusBar__title {
+    margin: 0;
+}
+
+.StatusBar__list {
+    display: flex;
+}
+
+.StatusBar__item {
+    width: 26px;
+    height: 26px;
+}
+
+.StatusBar__icon {
+    width: 100%;
+    height: 100%;
+}
