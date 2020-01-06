@@ -4,6 +4,9 @@
     box-shadow: 0 5px 17px color(#000 a(16%));
     position: relative;
     z-index: 1;
+    padding: toRem(20) toRem(15);
+    display: grid;
+    grid-row-gap: toRem(20);
 }
 
 .StatusBar__row {
@@ -13,13 +16,18 @@
 
 .StatusBar__title {
     margin: 0;
+    font-family: $RobotoBold;
+    font-size: toRem(16);
+    text-transform: uppercase;
 }
 
 .StatusBar__list {
-    display: flex;
+    display: grid;
+    grid-column-gap: toRem(15);
+    grid-auto-flow: column;
 }
 
-.StatusBar__item {
+.StatusBar__item_icon {
     width: 26px;
     height: 26px;
 }
@@ -27,4 +35,11 @@
 .StatusBar__icon {
     width: 100%;
     height: 100%;
+    fill: $accent;
+}
+
+.StatusBar__direction {
+    font-family: $RobotoBold;
+    color: $accent;
+    font-size: toRem(18);
 }
