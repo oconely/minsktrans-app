@@ -5,6 +5,7 @@ import Shield from '../Shield/inde';
 import WeekDaysList from '../WeekdaysList';
 
 const TransportRoute = ({ 
+    routeStyle,
     routeName, 
     onClick, 
     routeId, 
@@ -19,6 +20,7 @@ const TransportRoute = ({
     <li 
         className={`TransportRoute ${isActive ? 'TransportRoute_active' : ''}`}
         onClick={() => onClick(routeId)}
+        style={routeStyle}
     >
         { weekdays && <WeekDaysList weekdays={weekdays} Day={Shield} /> }
         <div className="TransportRoute__options">

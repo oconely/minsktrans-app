@@ -8,7 +8,7 @@ import { handleClickByRouteAction } from '../../../redux/actions';
 import { checkCondition } from './utils';
 import withSmoothScrollbar from './withSmoothScrollBar';
 
-const RoutesListWithSmoothScrollbar = withSmoothScrollbar(RoutesList);
+// const RoutesListWithSmoothScrollbar = withSmoothScrollbar(RoutesList);
 
 class RoutesListContainer extends Component {
     
@@ -40,7 +40,7 @@ class RoutesListContainer extends Component {
         return(
             error ? 
                 <div>{error}</div> : 
-                <RoutesListWithSmoothScrollbar 
+                <RoutesList
                     routes={filteredRoutes} 
                     pending={pending} 
                     handleClickByRoute={this.props.handleClickByRoute} 
