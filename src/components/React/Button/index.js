@@ -1,10 +1,15 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ active, handleClick, children, className='' }) => (
+const Button = ({ 
+    active, 
+    handleClick, 
+    children, 
+    className='' 
+}) => (
     <button
         onClick={handleClick}
-        className={`Button ${active ? 'Button_active ' + className : className}`}
+        className={`btn-reset Button ${active ? 'Button_active ' + className : className}`}
     >
         {children}
     </button>

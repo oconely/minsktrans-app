@@ -12,7 +12,7 @@
     border-radius: toRem(10);
     color: #000;
     transition: border-color 0.15s ease-in-out; 
-    box-shadow: 0 5px 11px color(#000 a(47%));
+    box-shadow: 0 5px 11px color(#000 a(57%));
     position: relative;
     overflow: hidden;
 }
@@ -55,8 +55,8 @@
     --scaleX: 1;
 }
 
-.SearchInput::placeholder {
+.SearchInput__input::placeholder {
     font-family: $RobotoRegular;
-    color: #CBCBCB;
-    font-size: toRem(14);
+    color: color(#CBCBCB shade(30%));
+    font-size: toRem(12.5);
 }

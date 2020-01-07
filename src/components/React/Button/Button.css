@@ -1,7 +1,36 @@
 @import '../../../postcss/variables.css';
 
 .Button {
-    
+    --defaultColor: #979797;
+    --accentColor: $accent;
+    --buttonShadow: color(#000 a(57%));
+    --iconColor: var(--defaultColor);
+}
+
+button.Button {
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border-radius: toRem(10);
+    border: 2px solid var(--defaultColor, $accent);
+    padding: toRem(6);
+    box-shadow: 0 5px 11px var(--buttonShadow);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease-in-out, opacity 0.15s ease-in-out;
+}
+
+.Button:not(.Button_active):hover {
+    opacity: 0.9;
+}
+
+.Button__icon {
+    fill: var(--iconColor, #979797);
+}
+
+button.Button_active {
+    box-shadow: 0 2px 4px var(--buttonShadow);
+    border: 2px solid var(--accentColor, $accent);
+    --iconColor: var(--accentColor);
 }
 
 .Button_active {

@@ -26,13 +26,13 @@ class MinskTransApp extends Component {
                             placeholderText="Введите номер или часть названия маршрута" 
                         />
                         <FilterButton filter="bus">
-                            <Icon name="bus" />
+                            <Icon name="bus" className="Button__icon" />
                         </FilterButton>
                         <FilterButton filter="tram">
-                            <Icon name="tram" />
+                            <Icon name="tram" className="Button__icon" />
                         </FilterButton>
                         <FilterButton filter="trol">
-                            <Icon name="trol" />
+                            <Icon name="trol" className="Button__icon" />
                         </FilterButton>
                         {/* <FilterButton filter="a>b">
                             A>B
