@@ -7,5 +7,10 @@
 .Bar_main {
     position: absolute;
     z-index: 1;
+    top: 30px;
+    left: 30px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: toRem(20);
 }
 

@@ -1,5 +1,6 @@
 @import '../../../postcss/variables.css';
 
-.ipnut {
-    
+.input {
+    outline: none;
+    border: none;
 } 

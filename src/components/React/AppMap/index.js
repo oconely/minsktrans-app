@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Map, YMaps, Placemark, } from 'react-yandex-maps';
 import { toGPS } from '../utils';
 import { connect } from 'react-redux';
 import StopsRoutes from '../StopsRoutes';
-
-let ymap;
+import useComponentDidMount from '../Hooks/useComponentDidMount';
 
 const getActiveRouteStoopsCoords = (stops, activeRouteId) => {
     return stops[`${activeRouteId}`].map(s =>{
@@ -13,32 +12,20 @@ const getActiveRouteStoopsCoords = (stops, activeRouteId) => {
 }
 
 const setCenter = (stops, activeRouteId, ymap) => {
-    if (!stops || !ymap || activeRouteId.length === 0) {
-        return [53.919749, 27.577372]
-    } else {
-        const coords = getActiveRouteStoopsCoords(stops, activeRouteId)
-        return coords[Math.floor(coords.length / 2)];
-    }
+    if (!stops || !ymap || activeRouteId.length === 0 ) return
+    const coords = getActiveRouteStoopsCoords(stops, activeRouteId)
+    ymap.setCenter(coords[Math.floor((coords.length / 2))], 12, {
+        duration: 1000
+    })
 }
 
 const AppMap = ({ stops, activeRouteId }) => {
-
-    const didMountRef = useRef(false)
-    useEffect(() => {
-        if (didMountRef.current) {
-            if (!stops || !ymap || activeRouteId.length === 0 ) return
-            const coords = getActiveRouteStoopsCoords(stops, activeRouteId)
-
-            ymap.setCenter(coords[Math.floor((coords.length / 2))], 12, {
-                duration: 1000
-            })
-            
-        } else didMountRef.current = true
-    })
-
+    let ymapRef
+    ymapRef = useComponentDidMount(() => setCenter(stops, activeRouteId, ymapRef.current));
+    
     return(
         <YMaps>
-            <Map instanceRef={el => ymap = el}
+            <Map instanceRef={el => ymapRef.current = el}
                 state={{center: [53.919749, 27.577372], zoom: 12}} 
                 width="100%" 
                 height="100vh"

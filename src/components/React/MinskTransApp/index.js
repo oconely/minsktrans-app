@@ -22,6 +22,7 @@ class MinskTransApp extends Component {
                 <div className="RoutesMap">
                     <Bar className="Bar_main">
                         <SearchInput 
+                            className="input SearchInput_main"
                             placeholderText="Введите номер или часть названия маршрута" 
                         />
                         <FilterButton filter="bus">
@@ -33,7 +34,7 @@ class MinskTransApp extends Component {
                         <FilterButton filter="trol">
                             <Icon name="trol" />
                         </FilterButton>
-                        <FilterButton filter="a>b">
+                        {/* <FilterButton filter="a>b">
                             A>B
                         </FilterButton>
                         <FilterButton filter="b>a">
@@ -41,7 +42,7 @@ class MinskTransApp extends Component {
                         </FilterButton>
                         <TestRenderButton>
                             Test Render
-                        </TestRenderButton>
+                        </TestRenderButton> */}
                     </Bar>
                     <AppMap />
                 </div>

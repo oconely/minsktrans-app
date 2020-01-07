@@ -14,6 +14,7 @@ exports.pages = (mode) => {
             path.resolve('./src/js/app.js'),
             path.resolve('./src/postcss/core.css'), 
             ...glob.sync('./src/components/pages/index/**/*.css'), // get all paths to styles for components
+            ...glob.sync('./src/components/public/**/*.css'),
         ],
     },
     output: {
