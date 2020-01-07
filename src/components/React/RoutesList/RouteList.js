@@ -5,38 +5,45 @@ import fetchDataAction from '../../../redux/actions/fetchData';
 import RoutesList from '.';
 import { getDataError, getRoutes, getDataPending } from '../../../redux/reducers/routesAndStops';
 import { handleClickByRouteAction } from '../../../redux/actions';
-import { checkCondition } from './utils';
-import withSmoothScrollbar from './withSmoothScrollBar';
+import { checkCondition, getCondition } from './utils';
 
-// const RoutesListWithSmoothScrollbar = withSmoothScrollbar(RoutesList);
+
 
 class RoutesListContainer extends Component {
     
-    scrollbar = createRef();
+    constructor(props) {
+        super(props);
+        this.computeFilteredRoutes = this.computeFilteredRoutes.bind(this);
+    }
 
     componentDidMount() { 
         const { fetchData } = this.props;
         fetchData();
     }
 
-    componentDidUpdate() {
-        // const { scrollbar } = this.scrollbar.current
-        // if (scrollbar) {
-        //     console.log(scrollbar.scrollTop = 0)
-        // }
+    computeFilteredRoutes() {
+        const { searchQuery, filters, routes } = this.props;
+        
+        if (filters.length && !searchQuery.trim().length && routes) {
+            return routes.filter(r => filters.some(f => r.transport.includes(f)));
+        } else if (!filters.length && searchQuery.length && routes) {
+            const field = getCondition(searchQuery);
+            return routes.filter(r => r[field].toLowerCase().includes(searchQuery.trim().toLowerCase()));
+        } else if (!searchQuery.length && !filters.length && routes) {
+            return routes
+        } else if (searchQuery.length && filters.length && routes) {
+            return routes.filter(r => checkCondition(r, searchQuery, filters));
+        } 
+        else {
+            return [];
+        }
     }
 
     render() {
-        const { error, pending, searchQuery, filters, routes, activeRouteId } = this.props;
-        let filteredRoutes;
-        if (routes && routes.length > 0 && (searchQuery.length > 0 || filters.length > 0)) {
-            filteredRoutes = routes.filter(r => checkCondition(r, searchQuery, filters));
-        } else if (routes && searchQuery === '' && filters.length === 0) {
-            filteredRoutes = routes;
-        } else {
-            filteredRoutes = []
-        }
-
+        const { computeFilteredRoutes } = this;
+        const { error, pending, activeRouteId } = this.props;
+        const filteredRoutes = computeFilteredRoutes();
+        
         return(
             error ? 
                 <div>{error}</div> : 
@@ -44,8 +51,7 @@ class RoutesListContainer extends Component {
                     routes={filteredRoutes} 
                     pending={pending} 
                     handleClickByRoute={this.props.handleClickByRoute} 
-                    activeRouteId={activeRouteId} 
-                    ref={this.scrollbar}
+                    activeRouteId={activeRouteId}
                 />
         )
     }

@@ -38,7 +38,6 @@ const Input = ({
                 ref={inputRef}
                 className="SearchInput__input input" 
                 onChange={() => {
-                    console.log
                     handleChange(inputRef.current.value)}}
                 placeholder={placeholderText}
                 disabled={!isDataLoaded}

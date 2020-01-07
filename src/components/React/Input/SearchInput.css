@@ -6,7 +6,7 @@
 }
 
 .SearchInput {
-    max-width: 467px;
+    width: 367px;
     min-width: 300px;
     height: 45px;
     border-radius: toRem(10);
@@ -58,5 +58,5 @@
 .SearchInput__input::placeholder {
     font-family: $RobotoRegular;
     color: color(#CBCBCB shade(30%));
-    font-size: toRem(12.5);
+    font-size: toRem(13);
 }
