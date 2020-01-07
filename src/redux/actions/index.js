@@ -27,15 +27,15 @@ export const changeFilters = (filterName) => ({
     filterName
 });
 
-const changeActiveRouteId = (id) => {
+const changeActiveRouteId = (id, transportType) => {
     return {
         type: "CHANGE_ACTIVE_ROUTE",
-        id  
-    }
-     
+        id,
+        transportType 
+    }    
 }
 
 
-export const handleClickByRouteAction = id => dispatch => {
-    dispatch(changeActiveRouteId(id));
+export const handleClickByRouteAction = (id, transportType) => dispatch => {
+    dispatch(changeActiveRouteId(id, transportType));
 }

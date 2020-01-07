@@ -19,7 +19,7 @@ const setCenter = (stops, activeRouteId, ymap) => {
     })
 }
 
-const AppMap = ({ stops, activeRouteId }) => {
+const AppMap = ({ stops, activeRouteId, transportType }) => {
     let ymapRef
     ymapRef = useComponentDidMount(() => setCenter(stops, activeRouteId, ymapRef.current));
     
@@ -30,14 +30,19 @@ const AppMap = ({ stops, activeRouteId }) => {
                 width="100%" 
                 height="100vh"
             >
-                {stops && <StopsRoutes stops={stops} activeRouteId={activeRouteId} />}
+                {stops && <StopsRoutes 
+                    stops={stops} 
+                    activeRouteId={activeRouteId} 
+                    transportType={transportType}
+                />}
             </Map>
         </YMaps>
 )};
 
 const mapStateToAppMapProps = (state) => ({
     stops: state.routesAndStops.data?.stops,
-    activeRouteId: state.activeRouteId
+    activeRouteId: state.activeRouteId,
+    transportType: state.activeRouteTransportType
 })
 
 export default connect(

@@ -5,6 +5,8 @@ import routesAndStops from './routesAndStops';
 import filters from './filters';
 import testRender from './testRender';
 import activeRouteId from './activeRouteId';
+import activeRouteTransportType from './activeRouteTransportType';
+
 
 const minskTransApp = combineReducers({
     isDataLoaded,
@@ -12,7 +14,8 @@ const minskTransApp = combineReducers({
     routesAndStops,
     filters,
     testRender,
-    activeRouteId  
+    activeRouteId,  
+    activeRouteTransportType
 });
 
 export default minskTransApp;

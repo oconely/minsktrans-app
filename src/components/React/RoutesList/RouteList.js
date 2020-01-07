@@ -70,7 +70,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     fetchData: fetchDataAction,
-    handleClickByRoute: id => handleClickByRouteAction(id)
+    handleClickByRoute: (id, transportType) => handleClickByRouteAction(id, transportType)
 }, dispatch);
 
 export default connect(

@@ -19,7 +19,7 @@ const TransportRoute = ({
 }) => (
     <li 
         className={`TransportRoute ${isActive ? 'TransportRoute_active' : ''}`}
-        onClick={() => onClick(routeId)}
+        onClick={() => onClick(routeId, transportType)}
         style={routeStyle}
     >
         { weekdays && <WeekDaysList weekdays={weekdays} Day={Shield} /> }
