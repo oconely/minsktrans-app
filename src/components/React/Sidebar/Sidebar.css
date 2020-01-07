@@ -4,14 +4,14 @@
     background: white;
     height: 100vh;
     position: relative;
-    width: 60%;
+    width: 460px;
     flex-shrink: 0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 
     @media (min-width: $md) {
-        width: 30%;
+        /* width: 30%; */
     }
 }
 

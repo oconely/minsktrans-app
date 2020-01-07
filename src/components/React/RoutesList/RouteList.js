@@ -19,6 +19,7 @@ class RoutesListContainer extends Component {
     componentDidMount() { 
         const { fetchData } = this.props;
         fetchData();
+        this.listHeight = window.innerHeight;
     }
 
     computeFilteredRoutes() {
@@ -52,6 +53,7 @@ class RoutesListContainer extends Component {
                     pending={pending} 
                     handleClickByRoute={this.props.handleClickByRoute} 
                     activeRouteId={activeRouteId}
+                    listHeight={this.listHeight}
                 />
         )
     }
