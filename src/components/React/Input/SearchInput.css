@@ -2,7 +2,7 @@
 
 .SearchInput {
     --borderColor: color($accent tint(50%));
-    --scaleX: 1;
+    --scaleX: 0;
 }
 
 .SearchInput {
@@ -15,7 +15,14 @@
     box-shadow: 0 5px 11px color(#000 a(47%));
     position: relative;
     overflow: hidden;
+}
+
+.SearchInput.input {
     border: 1px solid var(--borderColor);
+}
+
+.SearchInput_focused {
+    --borderColor: $accent;
 }
 
 .SearchInput_main {
@@ -31,7 +38,7 @@
     padding: toRem(10);
 }
 
-.SearchInput.input:after {
+.SearchInput.input::after {
     content: '';
     width: 100%;
     height: 2px;
@@ -39,20 +46,12 @@
     bottom: 0;
     left: 0;
     background: $accent;
-    /* transform: scaleX(var(--scaleX)); */
+    transform: scaleX(var(--scaleX));
     transform-origin: left;
-    transition: transform 0.15s ease-in-out;
-    /* display: block; */
+    transition: transform 0.1s ease-in-out;
 }
 
-.SearchInput.input {
-}
-
-.SearchInput.input:focus {
-    --borderColor: $accent;
-}
-
-.SearchInput.input:focus .SearchInput.input::after {
+.SearchInput_focused.input::after {
     --scaleX: 1;
 }
 

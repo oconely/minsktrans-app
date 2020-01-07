@@ -4,7 +4,6 @@ const useComponentDidMount = fn => {
     const didMountRef = useRef(false);
     useEffect(() => {
         if (didMountRef.current) {
-            // console.log(didMountRef.current.classList)
             fn(didMountRef.current)
         }
     })

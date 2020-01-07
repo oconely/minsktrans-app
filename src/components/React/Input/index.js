@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import './SearchInput.css';
 import useComponentDidMount from '../Hooks/useComponentDidMount';
 import { closest } from '../../../js/utils';
 
-const handleClick = (e) => {
-    const { target } = e;
-    const input = closest(target, el => el.classList.contains('SearchInput'))
-    if (input) {
-
-    } else {
-
+const handleDidMount = (input) => {
+    const handleClick = () => {
+        return (e) => {
+            const isSearchInput = closest(e.target, el => el.classList && el.classList.contains('SearchInput'));
+            if (isSearchInput) {
+                input.classList.add('SearchInput_focused')
+            } else {
+                input.classList.remove('SearchInput_focused')
+            }
+        }
     }
-}
+    
+    const handleClickWithInputRef = handleClick(input);
 
-const handleDidMount = (el) => {
-    console.log(el)
-    // document.addEventListener('click', handleClick)
+    document.addEventListener('click', handleClickWithInputRef)
 };
 
 const Input = ({ 
@@ -24,14 +26,20 @@ const Input = ({
     isDataLoaded, 
     className 
 }) => {
-    const inputRef = useComponentDidMount(handleDidMount);
+    const searchInputRef = useComponentDidMount(handleDidMount);
+    const inputRef = useRef(null);
 
     return(
-        <div className={`SearchInput ${className} `} >
+        <div 
+            ref={searchInputRef} 
+            className={`SearchInput ${className} `} 
+        >
             <input 
                 ref={inputRef}
                 className="SearchInput__input input" 
-                onChange={() => handleChange(inputRef.current.value)}
+                onChange={() => {
+                    console.log
+                    handleChange(inputRef.current.value)}}
                 placeholder={placeholderText}
                 disabled={!isDataLoaded}
             />
