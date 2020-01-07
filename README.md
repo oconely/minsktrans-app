@@ -8,7 +8,7 @@ install dependencies
 ```
 npm install
 ```
-run project on localhost:8004
+run project on localhost:8004/minskTransApp.html
 ```
 npm run start
 ```
