@@ -23,16 +23,15 @@ const TransportRoute = ({
         style={routeStyle}
     >
         { weekdays && <WeekDaysList weekdays={weekdays} Day={Shield} /> }
-        <div className="TransportRoute__options">
+        <ul className="ul-reset TransportRoute__options">
             <Shield className="TransportRoute__direction Shield Shield_direction">
                 {routeDirection}
             </Shield>
-            <div >
-            </div>
-            <div className="TransportRoute__info-button">
+
+            {/* <div className="TransportRoute__info-button">
                 <Icon name="info" className="TransportRoute__icon TransportRoute__icon_info" />
-            </div>
-        </div>
+            </div> */}
+        </ul>
         <div className="TransportRoute__number">
             {routeNumber}
             <Icon name={transportType} className="TransportRoute__icon TransportRoute__icon_transport" />

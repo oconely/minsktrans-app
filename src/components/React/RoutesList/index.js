@@ -12,7 +12,6 @@ let RoutesList = ({
     pending,
     listHeight 
 }) => {
-    console.log(listHeight)
     return(
         !pending ? 
             <List
@@ -40,8 +39,8 @@ let RoutesList = ({
                 )}
             </List> : (
                 Array(Math.floor(listHeight/155)).fill(1)
-                    .map(r => 
-                        <RouteSkeleton />)
+                    .map((r, i) => 
+                        <RouteSkeleton key={i} />)
                     )
             )
 }

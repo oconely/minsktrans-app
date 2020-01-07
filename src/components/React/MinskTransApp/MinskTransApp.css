@@ -8,4 +8,6 @@
     flex: 1;
     height: 100%;
     position: relative;
+    background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' height='20' width='20'><circle cx='10' cy='10' r='1' fill='%23E5E9EF'/></svg>");
+    height: 100vh;
 }

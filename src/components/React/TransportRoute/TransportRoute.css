@@ -57,9 +57,9 @@
     justify-self: flex-end;
 }
 
-.TransportRoute__direction {
+/* .TransportRoute__direction {
     margin-right: 10px;
-}
+} */
 
 .TransportRoute__info-button {
     width: 22px;

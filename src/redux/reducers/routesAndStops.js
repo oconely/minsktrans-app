@@ -11,7 +11,6 @@ const routesAndStops = (state = intialState, action) => {
                 pending: true
             }
         case "FETCH_DATA_SUCCESS":
-            console.log('success')
             return {
                 ...state,
                 pending: false,
